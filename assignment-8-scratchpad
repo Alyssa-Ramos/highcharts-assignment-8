@@ -1,0 +1,127 @@
+
+Scratch pad for First Bar Chart Attempt
+http://jsfiddle.net/alyssa_ramos/rk72zk2r/28/
+http://jsfiddle.net/alyssa_ramos/cdyn5pud/4/
+
+----------
+JavaScript
+----------
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+<script>
+var charts = [],
+  $containers = $('#trellis td'),
+  datasets = [{
+    name: 'Average Number of Employed People ',
+    data: [86080, 106656, 124444, 142156]
+  }, ];
+
+
+$.each(datasets, function(i, dataset) {
+  charts.push(new Highcharts.Chart({
+
+    chart: {
+      renderTo: $containers[i],
+      type: 'bar',
+      marginLeft: i === 0 ? 100 : 10
+    },
+
+    title: {
+      text: dataset.name,
+      align: 'left',
+      x: i === 0 ? 90 : 0
+    },
+
+    credits: {
+      enabled: false
+    },
+
+    xAxis: {
+      categories: ['1970s', '1980s', '1990s', '2000s'],
+    },
+
+    yAxis: {
+      allowDecimals: false,
+      title: {
+        text: 'Average Number of Employed People (thousands)'
+      },
+      min: 0,
+      max: 150000,
+    },
+
+    legend: {
+      enabled: false
+    },
+
+    series: [dataset]
+
+  }));
+});
+</script>
+
+
+<script>
+Highcharts.chart('container', {
+    chart: {
+      type: 'bar'
+    },
+    title: {
+      text: 'Average Number of Employed People '
+    },
+    xAxis: {
+      categories: ['2000s', '1990s', '1980s', '1970s']
+    },
+    yAxis: {
+      title: {
+        text: 'Number of people (thousands)'
+      }
+    },
+    series: [{
+      data: [142156, 124444, 106656, 86080 ]
+    }],
+
+    min: 0,
+    max: 150000,
+  });
+});
+
+</script>
+
+--------
+HTML
+--------
+<table id="trellis">
+    <tr>
+<td class="first"></td>
+<td></td>
+<td></td>
+<td></td>
+    </tr>
+</table>
+--------
+CSS
+--------
+#trellis td {
+    width: 200px;
+    height: 300px;
+}
+#trellis td.first {
+    width: 5000px;
+}
+
+
+------
+More script
+-------
+
+{
+    name: 'Employed',
+    data: [146047, 145362, 139877, 139064, 139869, 142469, 143929, 146305, 148834,
+      151436
+    ]
+  },
+
+  {
+          name: 'Labor Force',
+          data: [66,66,65.4,64.7,64.1,63.7,63.2,62.9,62.7,62.8]
+      },

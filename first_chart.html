@@ -10,14 +10,48 @@
 
   <!-- add the Highcharts script elements here -->
 
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="scripts/themes/dark-unia.js.map"></script>
+
 </head>
 <body>
 
   <h1>My first chart with Highcharts</h1>
 
   <!-- add the div and the code BELOW this comment -->
+  <div id="container"></div>
 
 
+
+
+
+  <script>
+
+    Highcharts.chart('container', {
+          chart: {
+              type: 'bar'
+          },
+          title: {
+              text: 'Fruit Consumption'
+          },
+          xAxis: {
+              categories: ['Grapes','Apples', 'Bananas', 'Oranges']
+          },
+          yAxis: {
+              title: {
+                  text: 'Fruit eaten'
+              }
+          },
+          series: [{
+              name: 'Alyssa',
+              data: [6,1, 0, 4]
+          }, {
+              name: 'Andrew',
+              data: [6, 5, 7, 3]
+          }]
+  });
+
+  </script>
   <!-- don't write anything below these required tags -->
 </body>
 </html>
